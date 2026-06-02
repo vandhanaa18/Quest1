@@ -4,7 +4,7 @@ def get_response(prompt):
     request_data = {
         "model": "llama3.2",
         "prompt": prompt,
-        "stream": False
+        "stream": True
     }
     result = requests.post(api_url, json=request_data)
     
