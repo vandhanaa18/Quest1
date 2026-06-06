@@ -3,36 +3,30 @@ from google.adk.tools import google_search
 
 guitar_song_search_agent = LlmAgent(
     name="guitar_song_search_agent",
-    model="gemini-2.0-flash",
-    description="Searches the web for guitar song chords.",
+    model="gemini-2.5-flash",
+    description="Finds the Chordie page URL for a song.",
 
     instruction="""
-    ALWAYS use google_search when users ask:
+  Use google_search.
 
-    - learn a song
-    - guitar chords
-    - chord progression
-    - song chords
+Find the Chordie page URL for the requested song.
 
-    After searching:
+Return the exact URL if found.
 
-1. Give only:
-   - song chords
-   - chord progression
+Example:
+https://www.chordie.com/chord.pere/www.azchords.com/e/edsheeran-tabs-34959/perfect-tabs-908387.html
 
-2. Do NOT provide:
-   - chord fingering
-   - strumming pattern
-   - practice plans
+Return only the URL.
 
-3. Ask the user what they want next:
-   - chord fingering
-   - strumming pattern
-   - practice plan
+If multiple Chordie results exist, prefer URLs containing:
+- tabs
+- chords
+- html
 
-Keep the response concise.
-
-    """,
+Never say that the song could not be found.
+Never provide explanations.
+Never provide summaries.
+""",
 
     tools=[google_search]
 )
