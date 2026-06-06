@@ -35,7 +35,7 @@ def generate_practice_plan(song_name: str):
 
 guitar_practice_agent = LlmAgent(
     name="guitar_practice_agent",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     description="Helps users practice guitar songs.",
     instruction="""
     Help users learn songs.
